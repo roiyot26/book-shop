@@ -1,2 +1,13 @@
-<h1>Hello, Rails from book index!</h1>
+<h1>Books</h1>
 
+<ul>
+  <% @books.each do |book| %>
+    <li>
+     <img src="<%= asset_path('hp7') %>" alt="No Available Img"> 
+     <h3> <%= book.author %></h3>
+     <h4> <%= book.name %></h4>
+     <p> <%= book.rent_price %></p>
+     <p> <%= book.is_available %></p>
+    </li>
+  <% end %>
+</ul>
