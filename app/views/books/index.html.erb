@@ -1,13 +1,24 @@
-<h1>Books</h1>
+<h1 class="index-title">Book Rentals</h1>
 
-<ul>
+<a href="#new-book-modal" class="add-book-btn">Add Book</a>
+
+<div id="new-book-modal" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-modal">&times;</a>
+    <h2>Add a New Book</h2>
+    <%= render 'addBookModal', book: @book %>
+  </div>
+</div>
+
+<ul class="book-list">
   <% @books.each do |book| %>
-    <li>
-     <img src="<%= asset_path('hp7') %>" alt="No Available Img"> 
-     <h3> <%= book.author %></h3>
-     <h4> <%= book.name %></h4>
-     <p> <%= book.rent_price %></p>
-     <p> <%= book.is_available %></p>
+    <li  class="book <%= book.is_available ? 'available' : 'unavailable' %>">
+      <img src="<%= book.image_url.present? ? book.image_url : asset_path('hp7') %>" alt="Book Image">
+      <h4><%= book.author.titleize %></h4>
+      <h3><%= book.name.titleize %></h3>
+      <p><%= book.rent_price.to_i %> $</p>
+      <p> <%= book.is_available ? 'In Stock' : 'Unavailable' %></p>
+      <%= button_to 'Change Status', toggle_availability_book_path(book.id), method: :patch, class: "toggle-status-btn" %>
     </li>
   <% end %>
 </ul>
