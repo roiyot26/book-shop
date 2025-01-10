@@ -1,0 +1,22 @@
+<div class="auth-view">
+  <h2 class="auth-title">Forgot Your Password?</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'auth-form' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-group">
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Send Reset Instructions", class: "btn submit-btn" %>
+    </div>
+  <% end %>
+
+  <div class="auth-links">
+    <%= link_to 'Back to Books', books_path, class: 'btn back-to-books-btn' %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

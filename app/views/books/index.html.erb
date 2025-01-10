@@ -1,4 +1,22 @@
-<h1 class="index-title">Book Rentals</h1>
+<div class="header">
+  <h1 class="index-title">Book Rentals</h1>
+  <div class="auth-links">
+    <% if user_signed_in? %>
+      <p class="welcome-message">Welcome, <%= current_user.email %>!</p>
+      <%= form_for :user, url: destroy_user_session_path, method: :delete, class: 'sign-out-form' do |f| %>
+        <%= f.submit 'Sign Out', class: 'sign-out-btn' %>
+      <% end %>
+    <% else %>
+      <div class="auth-buttons">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'signup-btn' %> 
+        <%= link_to 'Login', new_user_session_path, class: 'login-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
 
 <a href="#new-book-modal" class="add-book-btn">Add Book</a>
 
@@ -10,15 +28,20 @@
   </div>
 </div>
 
-<ul class="book-list">
+<div class="book-grid">
   <% @books.each do |book| %>
-    <li  class="book <%= book.is_available ? 'available' : 'unavailable' %>">
-      <img src="<%= book.image_url.present? ? book.image_url : asset_path('hp7') %>" alt="Book Image">
-      <h4><%= book.author.titleize %></h4>
-      <h3><%= book.name.titleize %></h3>
-      <p><%= book.rent_price.to_i %> $</p>
-      <p> <%= book.is_available ? 'In Stock' : 'Unavailable' %></p>
-      <%= button_to 'Change Status', toggle_availability_book_path(book.id), method: :patch, class: "toggle-status-btn" %>
-    </li>
+    <div class="book-card <%= book.is_available ? 'available' : 'unavailable' %>">
+      <img src="<%= book.image_url.present? ? book.image_url : asset_path('hp7') %>" alt="Book Image" class="book-image">
+      <div class="book-info">
+        <h4 class="author-name"><%= book.author.titleize %></h4>
+        <h3 class="book-title"><%= book.name.titleize %></h3>
+        <p class="price"><%= book.rent_price.to_i %> $</p>
+        <p class="availability-status"><%= book.is_available ? 'In Stock' : 'Unavailable' %></p>
+        <%= button_to 'Change Status', toggle_availability_book_path(book.id), method: :patch, class: "toggle-status-btn" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
+
+

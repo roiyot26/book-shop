@@ -1,0 +1,133 @@
+.auth-view {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-hint {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn {
+    width: 100%;
+}
+
+.back-btn {
+    margin-top: 15px;
+    display: inline-block;
+    background-color: #95a5a6;
+}
+
+.back-btn:hover {
+    background-color: #7f8c8d;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.auth-links {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-links a {
+    color: #0b0d0e;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.error-container {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #721c24;
+  }
+  
+  .error-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .error-item {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #721c24;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .error-item::before {
+    content: "⚠";
+    color: #721c24;
+    font-weight: bold;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+  }
+  

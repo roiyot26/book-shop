@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :toggle_availability]
   def index
     @books = Book.all
     @book = Book.new
@@ -11,7 +12,8 @@ class BooksController < ApplicationController
       redirect_to books_path, notice: 'Book added successfully.'
     else
       @books = Book.all
-      render :index, status: :unprocessable_entity
+      # render :index, status: :unprocessable_entity
+      render :new, alert: "Failed to add the book. Please try again."
     end
   end
 
@@ -21,8 +23,6 @@ class BooksController < ApplicationController
       puts "book, #{@book.id}"
       @book.update!(is_available: !@book.is_available)
       puts "book, #{@book.id}"
-    
-
       redirect_to books_path, notice: 'Book status updated successfully.'
   end    
 

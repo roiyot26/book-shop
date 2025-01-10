@@ -1,0 +1,35 @@
+<div class="auth-view">
+  <h2 class="auth-title">Sign Up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'auth-form' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-group">
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: "form-label" %>
+      <% if @minimum_password_length %>
+        <em class="password-hint">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Sign Up", class: "btn submit-btn" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back to Books', books_path, class: 'btn back-btn' %>
+
+  <div class="auth-links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
