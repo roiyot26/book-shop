@@ -24,7 +24,7 @@ module BookShop
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     # 
-    config.require_master_key = true
+    # config.require_master_key = true
 
   end
 end
