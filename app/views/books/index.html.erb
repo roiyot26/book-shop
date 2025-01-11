@@ -15,11 +15,7 @@
   </div>
 </div>
 
-
-
-
 <a href="#new-book-modal" class="add-book-btn">Add Book</a>
-
 <div id="new-book-modal" class="modal">
   <div class="modal-content">
     <a href="#" class="close-modal">&times;</a>
@@ -28,18 +24,35 @@
   </div>
 </div>
 
+
+<div class="filter-container">
+  <%= form_with url: books_path, method: :get, local: true, class: 'filter-form' do %>
+    <div class="filters">
+      <%= text_field_tag :query, params[:query], placeholder: "Search by name or author...", class: "filter-input" %>
+      <%= number_field_tag :min_price, params[:min_price], step: 1, placeholder: "Minimum Price",class: "filter-input" %>
+      <%= submit_tag "Filter", class: "btn filter-btn" %>
+      <%= link_to "Clear Filters", books_path, class: "btn clear-filters-btn" %>
+    </div>
+  <% end %>
+</div>
+
 <div class="book-grid">
+    <% if @books.any? %>
   <% @books.each do |book| %>
     <div class="book-card <%= book.is_available ? 'available' : 'unavailable' %>">
-      <img src="<%= book.image_url.present? ? book.image_url : asset_path('hp7') %>" alt="Book Image" class="book-image">
+      <img src="<%= book.image_url.present? ? book.image_url : asset_path('Image-not-found') %>" alt="Book Image" class="book-image">
       <div class="book-info">
         <h4 class="author-name"><%= book.author.titleize %></h4>
         <h3 class="book-title"><%= book.name.titleize %></h3>
         <p class="price"><%= book.rent_price.to_i %> $</p>
         <p class="availability-status"><%= book.is_available ? 'In Stock' : 'Unavailable' %></p>
         <%= button_to 'Change Status', toggle_availability_book_path(book.id), method: :patch, class: "toggle-status-btn" %>
+        <%= button_to 'Delete Book', book_path(book.id), method: :delete, class: "delete-book-btn"%>
       </div>
-    </div>
+   </div>
+  <% end %>
+   <% else %>
+    <p >No books available at the moment. Add a book to get started!</p>
   <% end %>
 </div>
 

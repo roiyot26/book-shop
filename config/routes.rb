@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #  get "/books", to: "books#index"
   
   # Books routes
-  resources :books, only: [:index, :new, :create, :show] do
+  resources :books, only: [:index, :new, :create, :show, :destroy] do
     patch :toggle_availability, on: :member
   end
   
