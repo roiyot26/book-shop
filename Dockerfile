@@ -20,7 +20,9 @@ RUN apt-get update -qq && \
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development"\
+    RAILS_MASTER_KEY="51ca698ea073edaa917c87b30ed34ef92cc49432ce00d2f381c8fc4bd21a61f15d0a80e757d4a972234eeb8cadb98707533fac9b7a7ea2403178a5094a48f406" # Add the key here
+
 
 # Throw-away build stage to reduce size of final image
 FROM base AS build
@@ -44,9 +46,6 @@ RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN ./bin/rails assets:precompile
-
-
-
 
 
 # Final stage for app image
