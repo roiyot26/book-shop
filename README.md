@@ -1,24 +1,22 @@
-# README
+# **Book Shop App**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails-based application for managing and exploring books. The project uses PostgreSQL for the database and is designed to showcase a fully functional bookstore application.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## **Live Demo**
+Check out the live demo: [BookShop on Render](https://book-shop-efxa.onrender.com/)
+ 
 
-* System dependencies
 
-* Configuration
+## **Setup and Installation**
 
-* Database creation
+Follow these steps to set up the project locally:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### **1. Clone the Repository**
+Clone the repository to your local machine and navigate to the project directory:
+```bash
+git clone https://github.com/roiyot26/book-shop.git
+cd bookshop
+bundle install
+rails s
