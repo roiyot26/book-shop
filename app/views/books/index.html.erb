@@ -47,7 +47,7 @@
         <p class="price"><%= book.rent_price.to_i %> $</p>
         <p class="availability-status"><%= book.is_available ? 'In Stock' : 'Unavailable' %></p>
         <%= button_to 'Change Status', toggle_availability_book_path(book.id), method: :patch, class: "toggle-status-btn" %>
-        <%= button_to 'Delete Book', book_path(book.id), method: :delete, class: "delete-book-btn"%>
+        <%= button_to 'X', book_path(book.id), method: :delete, class: "delete-book-btn"%>
       </div>
    </div>
   <% end %>
