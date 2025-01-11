@@ -7,6 +7,9 @@
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+
   timeout: 5000
 
 development:
@@ -27,6 +30,11 @@ test:
 #
 # Similarly, if you deploy your application as a Docker container, you must
 # ensure the database is located in a persisted volume.
-production:
-  <<: *default
+# production:
+#   <<: *default
   # database: path/to/persistent/storage/production.sqlite3
+production:
+  adapter: sqlite3
+  database: <%= Rails.root.join("db", "production.sqlite3") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
