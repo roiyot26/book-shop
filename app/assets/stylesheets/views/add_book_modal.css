@@ -10,7 +10,6 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Show modal when targeted by anchor */
 .modal:target {
   display: block;
 }
@@ -59,12 +58,10 @@ h1 {
   margin: 0 auto;
 }
 
-/* Form Group Styling */
 .form-group {
   margin-bottom: 20px;
 }
 
-/* Labels */
 .form-group label {
   display: block;
   font-size: 1rem;
@@ -72,7 +69,6 @@ h1 {
   margin-bottom: 5px;
 }
 
-/* Input Fields */
 .form-control {
   width: 100%;
   padding: 10px;
@@ -83,13 +79,11 @@ h1 {
   transition: border-color 0.3s ease;
 }
 
-/* Focused Input Fields */
 .form-control:focus {
   border-color: #0275d8;
   outline: none;
 }
 
-/* Submit Button */
 .submit {
   background-color: #5bc0de;
   color: #fff;
@@ -106,7 +100,6 @@ h1 {
   background-color: #31b0d5;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .form-container {
     padding: 20px;
