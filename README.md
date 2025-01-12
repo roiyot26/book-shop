@@ -13,7 +13,7 @@ Check out the live demo: [BookShop on Render](https://book-shop-efxa.onrender.co
 
 Follow these steps to set up the project locally:
 
-### **1. Clone the Repository**
+ **Clone the Repository**
 Clone the repository to your local machine and navigate to the project directory:
 ```bash
 git clone https://github.com/roiyot26/book-shop.git
